@@ -1,0 +1,3 @@
+- BDDye göre testleri ayarla
+- testleri arttır
+- repository classları yaz,
