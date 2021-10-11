@@ -97,3 +97,22 @@ java -Dspring.profiles.active=prod -jar store-core-1.0.0-SNAPSHOT.jar
 This should start the service and access it over browser by navigating to http://localhost:8080/swagger-ui/index.html.
 This is swagger-ui page listing all REST interfaces. You either try the APIs here, or I attached Postman collections
 under "docs" folder, you can import collections and run them too.
+
+Example test requests;
+
+Renting films
+
+curl --location --request POST 'localhost:8080/rentalfilms/rent' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "codes" : ["1", "2"],
+    "days": 2
+}'
+
+Returning films
+
+curl --location --request POST 'localhost:8080/rentalfilms/return' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "codes" : ["1", "2"]
+}'
