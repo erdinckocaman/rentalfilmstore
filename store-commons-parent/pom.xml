@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.casumo.store</groupId>
+    <artifactId>commons-parent</artifactId>
+    <version>0.0.1</version>
+    <name>commons-parent</name>
+    <packaging>pom</packaging>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.4.2</version>
+    </parent>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <java.version>11</java.version>
+        <git.dirty>true</git.dirty>
+    </properties>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+
+                <!-- GIT COMMIT PLUGIN -->
+                <plugin>
+                    <groupId>pl.project13.maven</groupId>
+                    <artifactId>git-commit-id-plugin</artifactId>
+                    <version>4.0.3</version>
+                    <executions>
+                        <execution>
+                            <id>get-the-git-infos</id>
+                            <goals>
+                                <goal>revision</goal>
+                            </goals>
+                        </execution>
+
+                        <execution>
+                            <id>validate-the-git-infos</id>
+                            <goals>
+                                <goal>validateRevision</goal>
+                            </goals>
+                            <phase>package</phase>
+                        </execution>
+                    </executions>
+
+                    <configuration>
+                        <dotGitDirectory>${project.basedir}/../.git</dotGitDirectory>
+                        <prefix>git</prefix>
+                        <verbose>false</verbose>
+                        <generateGitPropertiesFile>true</generateGitPropertiesFile>
+                        <generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties</generateGitPropertiesFilename>
+                        <format>properties</format>
+                        <gitDescribe>
+                            <skip>false</skip>
+                            <always>false</always>
+                            <dirty>-dirty</dirty>
+                        </gitDescribe>
+                        <validationProperties>
+                            <!-- verify that the current repository is not dirty -->
+                            <validationProperty>
+                                <name>validating git dirty</name>
+                                <value>${git.dirty}</value>
+                                <shouldMatchTo>false</shouldMatchTo>
+                            </validationProperty>
+                        </validationProperties>
+                    </configuration>
+                </plugin>
+                <!-- END OF GIT COMMIT PLUGIN -->
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <configuration>
+                        <propertiesEncoding>UTF-8</propertiesEncoding>
+                    </configuration>
+                </plugin>
+
+
+            </plugins>
+        </pluginManagement>
+
+    </build>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.casumo.store</groupId>
+        <artifactId>commons-bom</artifactId>
+        <version>0.0.1</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+</project>

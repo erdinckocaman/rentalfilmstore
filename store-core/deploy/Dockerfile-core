@@ -1,0 +1,10 @@
+FROM vgp/base:1
+
+# setting environment variables
+ENV APP_PACKAGE store-core.jar
+
+ADD $APP_PACKAGE $APP_HOME
+
+
+
+
