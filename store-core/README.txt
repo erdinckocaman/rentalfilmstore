@@ -90,11 +90,11 @@ Building steps are as follows;
 
 RUNNING
 
-Single jar file are built under "target" folder of "store-core" module. Run the command below;
+Single jar file is built under "target" folder of "store-core" module. Run the command below;
 
 java -Dspring.profiles.active=prod -jar store-core-1.0.0-SNAPSHOT.jar
 
-This should start the service and access it over browser by navigating to http://localhost:8080/swagger-ui/index.html.
+This should start the service and you can access it over browser by navigating to http://localhost:8080/swagger-ui/index.html.
 This is swagger-ui page listing all REST interfaces. You either try the APIs here, or I attached Postman collections
 under "docs" folder, you can import collections and run them too.
 
