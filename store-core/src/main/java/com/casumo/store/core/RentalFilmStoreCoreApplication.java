@@ -6,12 +6,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RentalStoreCoreApplication {
+public class RentalFilmStoreCoreApplication {
 
-	private static Logger logger = LoggerFactory.getLogger(RentalStoreCoreApplication.class);
+	private static Logger logger = LoggerFactory.getLogger(RentalFilmStoreCoreApplication.class);
 
 	public static void main(String[] args) {
-		SpringApplication.run(RentalStoreCoreApplication.class, args);
+		SpringApplication.run(RentalFilmStoreCoreApplication.class, args);
 
 		logger.info("Core service started...");
 
