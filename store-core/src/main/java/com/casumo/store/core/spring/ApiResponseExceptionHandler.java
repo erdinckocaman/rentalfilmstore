@@ -19,12 +19,14 @@ public class ApiResponseExceptionHandler extends ResponseEntityExceptionHandler 
     @ExceptionHandler(Exception.class)
     public StoreHttpResponseEntity handleServerError(Exception exception, WebRequest request) {
         logger.error("Generic server error", exception);
+
         return new ServerErrorResponseEntity("Generic server error");
     }
 
     @ExceptionHandler(BaseExceptionWithExternalCode.class)
     public StoreHttpResponseEntity handleServerError(BaseExceptionWithExternalCode exception, WebRequest request) {
         logger.error("Business logic error", exception);
+
         return new BusinessLogicErrorResponseEntity(exception.getExternalCode());
     }
 

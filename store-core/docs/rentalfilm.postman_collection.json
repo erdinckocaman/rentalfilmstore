@@ -1,0 +1,65 @@
+{
+	"info": {
+		"_postman_id": "c81a3927-23a9-4ae0-954f-17bfef57d509",
+		"name": "all",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Rent films",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"codes\" : [\"1\", \"2\"],\n    \"days\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/rentalfilms/rent",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rentalfilms",
+						"rent"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Return films",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"codes\" : [\"1\", \"2\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/rentalfilms/return",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rentalfilms",
+						"return"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

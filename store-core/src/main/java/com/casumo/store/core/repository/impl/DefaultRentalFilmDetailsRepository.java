@@ -12,6 +12,6 @@ public class DefaultRentalFilmDetailsRepository implements RentalFilmDetailsRepo
 
     @Override
     public RentalFilmProcess findByCode(String code) {
-        return new RentalFilmProcess(code, LocalDateTime.now().minusDays(3), 2);
+        return new RentalFilmProcess(code, LocalDateTime.now().minusDays(4), 2);
     }
 }

@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import java.math.BigDecimal;
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.time.Period;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.Objects;
@@ -92,9 +93,9 @@ public class RentalFilmService {
     }
 
     private BigDecimal calculatePriceToReturnFilm(RentalFilmProcess rentalFilmDetails) {
-        Long days = Duration.between(LocalDateTime.now(), rentalFilmDetails.getDateRent()).get(ChronoUnit.DAYS);
+        Long days = Duration.between(rentalFilmDetails.getDateRent(), LocalDateTime.now()).toDays();
         
-        logger.info("Rental days so far is {}", days);
+        logger.info("For renting process '{}', rental days so far is {}", rentalFilmDetails.getCode(), days);
 
         int daysDelayed = 0;
 
