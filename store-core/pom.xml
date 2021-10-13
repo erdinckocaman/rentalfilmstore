@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.casumo.store</groupId>
+        <groupId>com.tamplan.sample.store</groupId>
         <artifactId>commons-parent</artifactId>
         <version>0.0.1</version>
         <relativePath />
@@ -17,7 +17,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.casumo.store</groupId>
+            <groupId>com.tamplan.sample.store</groupId>
             <artifactId>commons-lib</artifactId>
         </dependency>
 
