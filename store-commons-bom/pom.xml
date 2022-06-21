@@ -41,6 +41,15 @@
 				<version>${guava.version}</version>
 			</dependency>
 
+			<!-- https://mvnrepository.com/artifact/com.tngtech.archunit/archunit-junit5 -->
+			<dependency>
+				<groupId>com.tngtech.archunit</groupId>
+				<artifactId>archunit-junit5</artifactId>
+				<version>0.23.1</version>
+				<scope>test</scope>
+			</dependency>
+
+
 		</dependencies>
 	</dependencyManagement>
 
