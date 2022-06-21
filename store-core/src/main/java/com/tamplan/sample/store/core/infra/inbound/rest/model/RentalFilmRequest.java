@@ -1,4 +1,4 @@
-package com.tamplan.sample.store.core.resources.model;
+package com.tamplan.sample.store.core.infra.inbound.rest.model;
 
 import java.util.List;
 
