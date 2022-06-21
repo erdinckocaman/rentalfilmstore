@@ -1,4 +1,4 @@
-package com.tamplan.sample.store.core.repository.impl;
+package com.tamplan.sample.store.core.infra.outbound.repository;
 
 import com.tamplan.sample.store.core.domain.RentalFilm;
 import com.tamplan.sample.store.core.domain.RentalFilmType;
