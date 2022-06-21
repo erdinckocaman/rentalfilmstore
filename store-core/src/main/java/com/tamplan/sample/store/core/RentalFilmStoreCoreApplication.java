@@ -13,7 +13,7 @@ public class RentalFilmStoreCoreApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(RentalFilmStoreCoreApplication.class, args);
 
-		logger.info("Core service started...");
+		logger.info("RentalFilmStore - core service started...");
 
 	}
 

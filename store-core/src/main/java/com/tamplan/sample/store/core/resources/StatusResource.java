@@ -22,5 +22,4 @@ public class StatusResource {
         return config.getEnv();
     }
 
-
 }
