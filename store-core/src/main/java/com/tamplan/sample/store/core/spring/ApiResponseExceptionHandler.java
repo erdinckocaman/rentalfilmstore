@@ -1,4 +1,4 @@
-package com.tamplan.sample.store.core.app;
+package com.tamplan.sample.store.core.spring;
 
 import com.tamplan.sample.store.lib.exception.BaseExceptionWithExternalCode;
 import com.tamplan.sample.store.lib.spring.StoreHttpResponseEntity;
