@@ -2,7 +2,7 @@ package com.tamplan.sample.store.core.infra.inbound.rest;
 
 import com.tamplan.sample.store.core.infra.inbound.rest.model.RentalFilmRequest;
 import com.tamplan.sample.store.core.infra.inbound.rest.model.RentalFilmReturnRequest;
-import com.tamplan.sample.store.core.service.RentalFilmService;
+import com.tamplan.sample.store.core.domain.pricecalculator.RentalFilmService;
 import com.tamplan.sample.store.lib.spring.impl.OkResponseEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

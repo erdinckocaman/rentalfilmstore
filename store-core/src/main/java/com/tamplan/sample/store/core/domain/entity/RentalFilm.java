@@ -1,4 +1,4 @@
-package com.tamplan.sample.store.core.domain;
+package com.tamplan.sample.store.core.domain.entity;
 
 import java.util.Objects;
 

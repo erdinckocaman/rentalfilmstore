@@ -1,4 +1,4 @@
-package com.tamplan.sample.store.core.domain;
+package com.tamplan.sample.store.core.domain.entity;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -11,7 +11,6 @@ public class RentalFilmProcess {
     private String code;
     private LocalDateTime dateRent;
     private Integer daysRent;
-
     private Integer status; // not used currently
 
     public RentalFilmProcess(String code, LocalDateTime dateRent, Integer daysRent) {

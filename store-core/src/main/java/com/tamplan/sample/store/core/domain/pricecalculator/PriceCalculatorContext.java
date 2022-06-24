@@ -1,4 +1,6 @@
-package com.tamplan.sample.store.core.domain;
+package com.tamplan.sample.store.core.domain.pricecalculator;
+
+import com.tamplan.sample.store.core.domain.entity.RentalFilmType;
 
 import java.util.Objects;
 

@@ -1,7 +1,7 @@
 package com.tamplan.sample.store.core.infra.outbound.repository;
 
-import com.tamplan.sample.store.core.domain.RentalFilm;
-import com.tamplan.sample.store.core.domain.RentalFilmType;
+import com.tamplan.sample.store.core.domain.entity.RentalFilm;
+import com.tamplan.sample.store.core.domain.entity.RentalFilmType;
 import com.tamplan.sample.store.core.repository.RentalFilmRepository;
 
 /**

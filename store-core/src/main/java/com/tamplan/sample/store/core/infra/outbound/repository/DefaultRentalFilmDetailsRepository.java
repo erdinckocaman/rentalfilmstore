@@ -1,6 +1,6 @@
 package com.tamplan.sample.store.core.infra.outbound.repository;
 
-import com.tamplan.sample.store.core.domain.RentalFilmProcess;
+import com.tamplan.sample.store.core.domain.entity.RentalFilmProcess;
 import com.tamplan.sample.store.core.repository.RentalFilmDetailsRepository;
 
 import java.time.LocalDateTime;

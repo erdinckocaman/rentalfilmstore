@@ -1,9 +1,10 @@
-package com.tamplan.sample.store.core.domain;
+package com.tamplan.sample.store.core.domain.pricecalculator;
 
-import com.tamplan.sample.store.core.domain.impl.NewReleaseBasedPriceCalculator;
-import com.tamplan.sample.store.core.domain.impl.OldFilmBasedPriceCalculator;
-import com.tamplan.sample.store.core.domain.impl.RegularFilmBasedPriceCalculator;
-import com.tamplan.sample.store.core.domain.exception.PriceCalculatorNotFoundException;
+import com.tamplan.sample.store.core.domain.entity.RentalFilmType;
+import com.tamplan.sample.store.core.domain.pricecalculator.impl.NewReleaseBasedPriceCalculator;
+import com.tamplan.sample.store.core.domain.pricecalculator.impl.OldFilmBasedPriceCalculator;
+import com.tamplan.sample.store.core.domain.pricecalculator.impl.RegularFilmBasedPriceCalculator;
+import com.tamplan.sample.store.core.domain.pricecalculator.exception.PriceCalculatorNotFoundException;
 
 import java.util.Map;
 

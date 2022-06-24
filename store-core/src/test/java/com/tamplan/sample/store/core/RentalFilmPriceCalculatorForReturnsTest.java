@@ -1,6 +1,10 @@
 package com.tamplan.sample.store.core;
 
-import com.tamplan.sample.store.core.domain.*;
+import com.tamplan.sample.store.core.domain.entity.RentalFilm;
+import com.tamplan.sample.store.core.domain.entity.RentalFilmType;
+import com.tamplan.sample.store.core.domain.pricecalculator.PriceCalculatorContext;
+import com.tamplan.sample.store.core.domain.pricecalculator.RentalFilmPriceCalculator;
+import com.tamplan.sample.store.core.domain.pricecalculator.RentalFilmPriceCalculatorFactory;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

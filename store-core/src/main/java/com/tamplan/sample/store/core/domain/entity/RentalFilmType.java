@@ -1,4 +1,4 @@
-package com.tamplan.sample.store.core.domain;
+package com.tamplan.sample.store.core.domain.entity;
 
 public enum RentalFilmType {
     NEW_RELEASE("NR"),

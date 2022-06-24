@@ -1,11 +1,11 @@
 package com.tamplan.sample.store.core.configuration;
 
-import com.tamplan.sample.store.core.domain.RentalFilmPriceCalculatorFactory;
+import com.tamplan.sample.store.core.domain.pricecalculator.RentalFilmPriceCalculatorFactory;
 import com.tamplan.sample.store.core.repository.RentalFilmDetailsRepository;
 import com.tamplan.sample.store.core.repository.RentalFilmRepository;
 import com.tamplan.sample.store.core.infra.outbound.repository.DefaultRentalFilmDetailsRepository;
 import com.tamplan.sample.store.core.infra.outbound.repository.DefaultRentalFilmRepository;
-import com.tamplan.sample.store.core.service.RentalFilmService;
+import com.tamplan.sample.store.core.domain.pricecalculator.RentalFilmService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

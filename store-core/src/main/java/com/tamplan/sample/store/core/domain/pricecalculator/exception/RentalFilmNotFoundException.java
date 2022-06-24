@@ -1,4 +1,4 @@
-package com.tamplan.sample.store.core.service.exception;
+package com.tamplan.sample.store.core.domain.pricecalculator.exception;
 
 import com.tamplan.sample.store.core.commons.RentalStoreCoreErrorCodes;
 import com.tamplan.sample.store.lib.exception.BaseExceptionWithExternalCode;

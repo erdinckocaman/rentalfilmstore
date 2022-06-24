@@ -16,7 +16,6 @@ public class RentalFilmStoreCoreApplication {
 		SpringApplication.run(RentalFilmStoreCoreApplication.class, args);
 
 		logger.info("RentalFilmStore - core service started...");
-
 	}
 
 }
