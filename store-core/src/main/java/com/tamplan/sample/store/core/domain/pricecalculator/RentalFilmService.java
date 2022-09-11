@@ -2,10 +2,10 @@ package com.tamplan.sample.store.core.domain.pricecalculator;
 
 import com.tamplan.sample.store.core.domain.entity.RentalFilm;
 import com.tamplan.sample.store.core.domain.entity.RentalFilmProcess;
-import com.tamplan.sample.store.core.repository.RentalFilmDetailsRepository;
-import com.tamplan.sample.store.core.repository.RentalFilmRepository;
 import com.tamplan.sample.store.core.domain.pricecalculator.exception.RentalFilmNotFoundException;
 import com.tamplan.sample.store.core.domain.pricecalculator.exception.RentalFilmProcessNotFoundException;
+import com.tamplan.sample.store.core.repository.RentalFilmDetailsRepository;
+import com.tamplan.sample.store.core.repository.RentalFilmRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -53,7 +53,7 @@ public class RentalFilmService {
         for (String code: codes) {
             RentalFilm film = rentalFilmRepository.findByCode(code);
 
-            if ( film == null ) {
+            if (film == null) {
                 throw new RentalFilmNotFoundException(code);
             }
             total = total.add(calculatePriceToRentFilms(film, days));
@@ -66,7 +66,8 @@ public class RentalFilmService {
     private BigDecimal calculatePriceToRentFilms(RentalFilm film, int days) {
         PriceCalculatorContext priceCalculatorContext = new PriceCalculatorContext(film.getFilmType());
 
-        RentalFilmPriceCalculator priceCalculator = rentalFilmPriceCalculatorFactory.getRentalFilmPriceCalculator(priceCalculatorContext);
+        RentalFilmPriceCalculator priceCalculator = rentalFilmPriceCalculatorFactory
+                .getRentalFilmPriceCalculator(priceCalculatorContext);
 
         return priceCalculator.calculatePrice(film, days, 0);
     }
@@ -80,7 +81,7 @@ public class RentalFilmService {
         for (String code: codes) {
             RentalFilmProcess rentalFilmDetails = rentalFilmDetailsRepository.findByCode(code);
 
-            if ( rentalFilmDetails == null ) {
+            if (rentalFilmDetails == null) {
                throw new RentalFilmProcessNotFoundException(code);
             }
 
@@ -98,7 +99,7 @@ public class RentalFilmService {
 
         int daysDelayed = 0;
 
-        if ( days > rentalFilmDetails.getDaysRent() ) {
+        if (days > rentalFilmDetails.getDaysRent()) {
             daysDelayed = days.intValue() - rentalFilmDetails.getDaysRent();
         }
 
@@ -108,9 +109,11 @@ public class RentalFilmService {
 
         PriceCalculatorContext priceCalculatorContext = new PriceCalculatorContext(film.getFilmType());
 
-        RentalFilmPriceCalculator priceCalculator = rentalFilmPriceCalculatorFactory.getRentalFilmPriceCalculator(priceCalculatorContext);
+        RentalFilmPriceCalculator priceCalculator = rentalFilmPriceCalculatorFactory
+                .getRentalFilmPriceCalculator(priceCalculatorContext);
 
-        BigDecimal lateFee =  priceCalculator.calculatePrice(film, rentalFilmDetails.getDaysRent(), daysDelayed).subtract(priceCalculator.calculatePrice(film, rentalFilmDetails.getDaysRent(), 0));
+        BigDecimal lateFee = priceCalculator.calculatePrice(film, rentalFilmDetails.getDaysRent(), daysDelayed)
+                .subtract(priceCalculator.calculatePrice(film, rentalFilmDetails.getDaysRent(), 0));
 
         logger.info("Calculated late fee to return film is {}", lateFee);
 

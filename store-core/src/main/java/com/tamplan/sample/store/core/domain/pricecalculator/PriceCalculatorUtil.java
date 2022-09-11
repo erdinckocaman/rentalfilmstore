@@ -7,7 +7,7 @@ public class PriceCalculatorUtil {
     public static BigDecimal calculatePriceWithFlatPricing(int totalDays, BigDecimal pricePerday, int flatDays) {
         BigDecimal total = pricePerday;
 
-        if ( totalDays > flatDays ) {
+        if (totalDays > flatDays) {
             BigDecimal interimTotal = BigDecimal.valueOf(totalDays - flatDays).multiply(pricePerday);
             total = total.add(interimTotal);
         }

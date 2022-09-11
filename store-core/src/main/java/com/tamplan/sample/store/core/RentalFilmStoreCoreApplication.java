@@ -10,12 +10,12 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @SpringBootApplication
 public class RentalFilmStoreCoreApplication {
 
-	private static Logger logger = LoggerFactory.getLogger(RentalFilmStoreCoreApplication.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(RentalFilmStoreCoreApplication.class);
 
-	public static void main(String[] args) {
-		SpringApplication.run(RentalFilmStoreCoreApplication.class, args);
+    public static void main(String[] args) {
+        SpringApplication.run(RentalFilmStoreCoreApplication.class, args);
 
-		logger.info("RentalFilmStore - core service started...");
-	}
+        LOGGER.info("RentalFilmStore - core service started...");
+    }
 
 }

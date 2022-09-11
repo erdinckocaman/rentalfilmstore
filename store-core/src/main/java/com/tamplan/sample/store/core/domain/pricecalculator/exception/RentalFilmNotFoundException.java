@@ -1,9 +1,9 @@
 package com.tamplan.sample.store.core.domain.pricecalculator.exception;
 
 import com.tamplan.sample.store.core.commons.RentalStoreCoreErrorCodes;
-import com.tamplan.sample.store.lib.exception.BaseExceptionWithExternalCode;
+import com.tamplan.sample.store.lib.exception.BaseExceptionWithErrorCode;
 
-public class RentalFilmNotFoundException extends BaseExceptionWithExternalCode {
+public class RentalFilmNotFoundException extends BaseExceptionWithErrorCode {
 
     private final String filmCode;
 

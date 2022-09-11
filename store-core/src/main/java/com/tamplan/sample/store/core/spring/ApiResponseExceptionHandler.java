@@ -1,6 +1,6 @@
 package com.tamplan.sample.store.core.spring;
 
-import com.tamplan.sample.store.lib.exception.BaseExceptionWithExternalCode;
+import com.tamplan.sample.store.lib.exception.BaseExceptionWithErrorCode;
 import com.tamplan.sample.store.lib.spring.StoreHttpResponseEntity;
 import com.tamplan.sample.store.lib.spring.impl.BusinessLogicErrorResponseEntity;
 import com.tamplan.sample.store.lib.spring.impl.ServerErrorResponseEntity;
@@ -23,11 +23,11 @@ public class ApiResponseExceptionHandler extends ResponseEntityExceptionHandler 
         return new ServerErrorResponseEntity("Generic server error");
     }
 
-    @ExceptionHandler(BaseExceptionWithExternalCode.class)
-    public StoreHttpResponseEntity handleServerError(BaseExceptionWithExternalCode exception, WebRequest request) {
+    @ExceptionHandler(BaseExceptionWithErrorCode.class)
+    public StoreHttpResponseEntity handleServerError(BaseExceptionWithErrorCode exception, WebRequest request) {
         logger.error("Business logic error", exception);
 
-        return new BusinessLogicErrorResponseEntity(exception.getExternalCode());
+        return new BusinessLogicErrorResponseEntity(exception.getErrorCode());
     }
 
 }

@@ -1,10 +1,10 @@
 package com.tamplan.sample.store.core.domain.pricecalculator;
 
 import com.tamplan.sample.store.core.domain.entity.RentalFilmType;
+import com.tamplan.sample.store.core.domain.pricecalculator.exception.PriceCalculatorNotFoundException;
 import com.tamplan.sample.store.core.domain.pricecalculator.impl.NewReleaseBasedPriceCalculator;
 import com.tamplan.sample.store.core.domain.pricecalculator.impl.OldFilmBasedPriceCalculator;
 import com.tamplan.sample.store.core.domain.pricecalculator.impl.RegularFilmBasedPriceCalculator;
-import com.tamplan.sample.store.core.domain.pricecalculator.exception.PriceCalculatorNotFoundException;
 
 import java.util.Map;
 
@@ -22,14 +22,15 @@ public class RentalFilmPriceCalculatorFactory {
 
         rentalFilmPriceCalculatorMap = Map.of(
                 RentalFilmType.NEW_RELEASE, newReleaseBasedPriceCalculator,
-                RentalFilmType.OLD_FILM,    oldFilmBasedPriceCalculator,
-                RentalFilmType.REGULAR,     regularFilmBasedPriceCalculator);
+                RentalFilmType.OLD_FILM, oldFilmBasedPriceCalculator,
+                RentalFilmType.REGULAR, regularFilmBasedPriceCalculator);
     }
 
     public RentalFilmPriceCalculator getRentalFilmPriceCalculator(PriceCalculatorContext priceCalculatorContext) {
-        RentalFilmPriceCalculator priceCalculator = rentalFilmPriceCalculatorMap.get(priceCalculatorContext.getFilmType());
+        RentalFilmPriceCalculator priceCalculator = rentalFilmPriceCalculatorMap
+                .get(priceCalculatorContext.getFilmType());
 
-        if ( priceCalculator == null ) {
+        if (priceCalculator == null) {
             throw new PriceCalculatorNotFoundException(priceCalculatorContext.getFilmType());
         }
 

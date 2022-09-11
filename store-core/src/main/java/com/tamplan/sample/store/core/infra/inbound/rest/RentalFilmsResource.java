@@ -1,8 +1,8 @@
 package com.tamplan.sample.store.core.infra.inbound.rest;
 
+import com.tamplan.sample.store.core.domain.pricecalculator.RentalFilmService;
 import com.tamplan.sample.store.core.infra.inbound.rest.model.RentalFilmRequest;
 import com.tamplan.sample.store.core.infra.inbound.rest.model.RentalFilmReturnRequest;
-import com.tamplan.sample.store.core.domain.pricecalculator.RentalFilmService;
 import com.tamplan.sample.store.lib.spring.impl.OkResponseEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,11 +25,14 @@ public class RentalFilmsResource {
 
     @PostMapping(value = "/rent")
     public OkResponseEntity<BigDecimal> calculatePriceToRentFilms(@RequestBody RentalFilmRequest rentalFilmRequest) {
-        return new OkResponseEntity(rentalFilmService.calculatePriceToRentFilms(rentalFilmRequest.getCodes(), rentalFilmRequest.getDays()));
+        return new OkResponseEntity(rentalFilmService.calculatePriceToRentFilms(
+                rentalFilmRequest.getCodes(),
+                rentalFilmRequest.getDays()));
     }
 
     @PostMapping(value = "/return")
-    public OkResponseEntity<BigDecimal> calculatePriceToReturnFilms(@RequestBody RentalFilmReturnRequest rentalFilmReturnRequest) {
+    public OkResponseEntity<BigDecimal> calculatePriceToReturnFilms(
+            @RequestBody RentalFilmReturnRequest rentalFilmReturnRequest) {
         return new OkResponseEntity(rentalFilmService.calculatePriceToReturnFilms(rentalFilmReturnRequest.getCodes()));
     }
 
