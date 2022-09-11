@@ -1,18 +1,16 @@
 package com.tamplan.sample.store.lib.exception;
 
-public abstract class BaseExceptionWithExternalCode extends BaseException implements ExceptionWithExternalCode {
+public abstract class BaseExceptionWithErrorCode extends BaseException implements ExceptionWithErrorCode {
 
-	private static final long serialVersionUID = 1L;
+    private final int externalCode;
 
-	private final int externalCode;
+    public BaseExceptionWithErrorCode(int externalCode) {
+        this.externalCode = externalCode;
+    }
 
-	public BaseExceptionWithExternalCode(int externalCode) {
-		this.externalCode = externalCode;
-	}
-
-	@Override
-	public int getExternalCode() {
-		return externalCode;
-	}
+    @Override
+    public int getErrorCode() {
+        return externalCode;
+    }
 
 }

@@ -17,7 +17,7 @@ public class JarResourceReader {
     }
 
     public static byte[] readFileAsBytes(String fileName) {
-        try(InputStream is = JarResourceReader.class.getResourceAsStream("/" + fileName)) {
+        try (InputStream is = JarResourceReader.class.getResourceAsStream("/" + fileName)) {
             int ch = 0;
             ByteArrayOutputStream bos = new ByteArrayOutputStream();
 

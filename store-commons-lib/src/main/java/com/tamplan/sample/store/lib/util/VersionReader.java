@@ -23,19 +23,19 @@ public class VersionReader {
 
             String commitId = propGit.getProperty("git.commit.id");
 
-            if ( commitId != null && !commitId.isBlank() ) {
+            if (commitId != null && !commitId.isBlank()) {
                 strBuilder.append("commitId=").append(commitId);
             }
 
             String commitDate = propGit.getProperty("git.commit.time");
 
-            if ( commitDate != null && !commitDate.isBlank() ) {
+            if (commitDate != null && !commitDate.isBlank()) {
                 strBuilder.append(" commitDate=").append(commitDate);
             }
 
             String tags = propGit.getProperty("git.tags");
 
-            if ( tags != null && !tags.isBlank() ) {
+            if (tags != null && !tags.isBlank()) {
                 strBuilder.append(" tags=").append(tags);
             }
 

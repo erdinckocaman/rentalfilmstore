@@ -1,6 +1,6 @@
 package com.tamplan.sample.store.lib.exception;
 
-public interface ExceptionWithExternalCode {
+public interface ExceptionWithErrorCode {
 
-	int getExternalCode();
+    int getErrorCode();
 }
