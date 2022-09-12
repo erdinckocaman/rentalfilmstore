@@ -20,5 +20,7 @@ public class RentalFilmStoreArchTest {
                     "com.tamplan.sample.store.core.domain..",
                     "com.tamplan.sample.store.core.commons..",
                     "com.tamplan.sample.store.lib..",
+                    "com.tamplan.sample.store.core.repository..",
+                    "org.slf4j..",
                     "java..");
 }
