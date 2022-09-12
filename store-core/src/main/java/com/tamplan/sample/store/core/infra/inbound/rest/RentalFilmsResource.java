@@ -25,15 +25,14 @@ public class RentalFilmsResource {
 
     @PostMapping(value = "/rent")
     public OkResponseEntity<BigDecimal> calculatePriceToRentFilms(@RequestBody RentalFilmRequest rentalFilmRequest) {
-        return new OkResponseEntity(rentalFilmService.calculatePriceToRentFilms(
-                rentalFilmRequest.getCodes(),
-                rentalFilmRequest.getDays()));
+        return new OkResponseEntity(
+                rentalFilmService.calculatePriceToRentFilms(rentalFilmRequest.codes(), rentalFilmRequest.days()));
     }
 
     @PostMapping(value = "/return")
     public OkResponseEntity<BigDecimal> calculatePriceToReturnFilms(
             @RequestBody RentalFilmReturnRequest rentalFilmReturnRequest) {
-        return new OkResponseEntity(rentalFilmService.calculatePriceToReturnFilms(rentalFilmReturnRequest.getCodes()));
+        return new OkResponseEntity(rentalFilmService.calculatePriceToReturnFilms(rentalFilmReturnRequest.codes()));
     }
 
 }
