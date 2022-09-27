@@ -6,6 +6,7 @@ import com.tamplan.sample.store.core.infra.outbound.repository.DefaultRentalFilm
 import com.tamplan.sample.store.core.infra.outbound.repository.DefaultRentalFilmRepository;
 import com.tamplan.sample.store.core.repository.RentalFilmDetailsRepository;
 import com.tamplan.sample.store.core.repository.RentalFilmRepository;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -27,11 +28,13 @@ public class RentalStoreCoreServicesConfiguration {
 
     @Bean
     public RentalFilmService getRentalFilmService(
+            ApplicationEventPublisher applicationEventPublisher,
             RentalFilmRepository rentalFilmRepository,
             RentalFilmDetailsRepository rentalFilmDetailsRepository,
             RentalFilmPriceCalculatorFactory rentalFilmPriceCalculatorFactory) {
 
         return new RentalFilmService(
+                applicationEventPublisher,
                 rentalFilmRepository,
                 rentalFilmDetailsRepository,
                 rentalFilmPriceCalculatorFactory);

@@ -4,8 +4,6 @@ import com.tamplan.sample.store.core.domain.pricecalculator.RentalFilmService;
 import com.tamplan.sample.store.core.infra.inbound.rest.model.RentalFilmRequest;
 import com.tamplan.sample.store.core.infra.inbound.rest.model.RentalFilmReturnRequest;
 import com.tamplan.sample.store.lib.spring.impl.OkResponseEntity;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,8 +15,6 @@ import java.math.BigDecimal;
 @RestController
 @RequestMapping(value = "/rentalfilms", produces = "application/json", consumes = "application/json")
 public class RentalFilmsResource {
-    
-    private static Logger logger = LoggerFactory.getLogger(RentalFilmsResource.class);
 
     @Autowired
     RentalFilmService rentalFilmService;

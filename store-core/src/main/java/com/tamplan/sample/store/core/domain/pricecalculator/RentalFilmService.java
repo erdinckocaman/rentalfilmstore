@@ -2,18 +2,21 @@ package com.tamplan.sample.store.core.domain.pricecalculator;
 
 import com.tamplan.sample.store.core.domain.entity.RentalFilm;
 import com.tamplan.sample.store.core.domain.entity.RentalFilmProcess;
+import com.tamplan.sample.store.core.domain.event.ReturnPriceCalculatedEvent;
 import com.tamplan.sample.store.core.domain.pricecalculator.exception.RentalFilmNotFoundException;
 import com.tamplan.sample.store.core.domain.pricecalculator.exception.RentalFilmProcessNotFoundException;
 import com.tamplan.sample.store.core.repository.RentalFilmDetailsRepository;
 import com.tamplan.sample.store.core.repository.RentalFilmRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.ApplicationEventPublisher;
 
 import java.math.BigDecimal;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Objects;
+
+import static java.util.Objects.requireNonNull;
 
 public class RentalFilmService {
     
@@ -22,16 +25,19 @@ public class RentalFilmService {
     private final RentalFilmRepository rentalFilmRepository;
     private final RentalFilmDetailsRepository rentalFilmDetailsRepository;
     private final RentalFilmPriceCalculatorFactory rentalFilmPriceCalculatorFactory;
+    private final ApplicationEventPublisher eventPublisher;
 
     public RentalFilmService(
+            ApplicationEventPublisher eventPublisher,
             RentalFilmRepository rentalFilmRepository,
             RentalFilmDetailsRepository rentalFilmDetailsRepository,
             RentalFilmPriceCalculatorFactory rentalFilmPriceCalculatorFactory) {
 
-        Objects.requireNonNull(rentalFilmRepository);
-        Objects.requireNonNull(rentalFilmDetailsRepository);
-        Objects.requireNonNull(rentalFilmPriceCalculatorFactory);
+        requireNonNull(rentalFilmRepository);
+        requireNonNull(rentalFilmDetailsRepository);
+        requireNonNull(rentalFilmPriceCalculatorFactory);
 
+        this.eventPublisher = eventPublisher;
         this.rentalFilmRepository = rentalFilmRepository;
         this.rentalFilmDetailsRepository = rentalFilmDetailsRepository;
         this.rentalFilmPriceCalculatorFactory = rentalFilmPriceCalculatorFactory;
@@ -42,8 +48,8 @@ public class RentalFilmService {
     // ============================================================================
 
     public BigDecimal calculatePriceToRentFilms(List<String> codes, Integer days) {
-        Objects.requireNonNull(codes);
-        Objects.requireNonNull(days);
+        requireNonNull(codes);
+        requireNonNull(days);
         // Check if days > 0
 
         logger.info("Calculating rental price for codes '{}' and days '{}'", codes, days);
@@ -57,7 +63,6 @@ public class RentalFilmService {
                 throw new RentalFilmNotFoundException(code);
             }
             total = total.add(calculatePriceToRentFilms(film, days));
-
         }
 
         return total;
@@ -116,6 +121,8 @@ public class RentalFilmService {
                 .subtract(priceCalculator.calculatePrice(film, rentalFilmDetails.getDaysRent(), 0));
 
         logger.info("Calculated late fee to return film is {}", lateFee);
+
+        eventPublisher.publishEvent(new ReturnPriceCalculatedEvent("system"));
 
         return lateFee;
     }
