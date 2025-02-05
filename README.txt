@@ -1,6 +1,7 @@
+
 # RENTAL FILM STORE PROJECT
 
-Project consists of four modules. Three of them are support modules which define the general project structure and some common functionality. The other module is the actual service application which implements the required business functions.
+The project is structured into four key modules, each serving a distinct role in organizing functionality and supporting the overall system. Three of them are support modules which define the general project structure and some common functionality. The other module is the actual service application which implements the required business functions.
 
 ## MODULES
 
